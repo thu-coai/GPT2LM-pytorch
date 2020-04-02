@@ -13,7 +13,7 @@ install:
   - cd .. && git clone https://github.com/thu-coai/cotk.git && cd cotk && git checkout version_up && cd .. && pip install ./cotk --progress-bar off && cd GPT2LM-pytorch
 
 script:
-  - pytest test_GRULM_pytorch.py --cov=. --cov-report term-missing
+  - pytest test_GPT2LM_pytorch.py --cov=. --cov-report term-missing
 
 deploy:
   - provider: script
