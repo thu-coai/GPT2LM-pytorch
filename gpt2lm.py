@@ -34,7 +34,7 @@ class GPT2LM(BaseModel):
 			scalar=["loss", "word_loss", "perplexity"],\
 			prefix="train")
 
-		scalarlist = ["word_loss", "perplexity_avg_on_batch", "fwppl", "bwppl"]
+		scalarlist = ["word_loss", "perplexity_avg_on_batch"]
 		tensorlist = []
 		textlist = []
 		emblist = []
@@ -158,7 +158,7 @@ class GPT2LM(BaseModel):
 			self.testSummary(self.now_batch, testloss_detail)
 			logging.info("epoch %d, evaluate test", self.now_epoch)
 
-			self.save_checkpoint(value=devloss_detail["bwppl"].tolist())
+			self.save_checkpoint(value=devloss_detail["word_loss"].tolist())
 
 	def test(self, key):
 		args = self.param.args
