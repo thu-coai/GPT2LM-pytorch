@@ -175,7 +175,7 @@ class GPT2LM(BaseModel):
 			data = incoming.data
 			data.sent_allvocabs = LongTensor(incoming.data.sent_allvocabs)
 			data.sent_length = incoming.data.sent_length
-			data.gen_log_prob = gen_log_prob.transpose(1, 0)
+			data.gen_log_prob = gen_log_prob
 			metric1.forward(data)
 		res = metric1.close()
 
